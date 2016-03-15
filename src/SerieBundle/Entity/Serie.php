@@ -60,6 +60,38 @@ class Serie
     private $genres;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Country")
+     * @ORM\JoinTable(name="series_countries",
+     *      joinColumns={@ORM\JoinColumn(name="serie_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="country_id", referencedColumnName="id")}
+     *      )
+     */
+    private $countries;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Language")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
+     */
+    private $language;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Person", inversedBy="seriesIn")
+     * @ORM\JoinTable(name="series_castings")
+     */
+    private $casting;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Person", inversedBy="seriesDirected")
+     * @ORM\JoinTable(name="series_directors")
+     */
+    private $directors;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="favorites")
+     */
+    private $users;
+
+    /**
      * Get id
      *
      * @return integer 
