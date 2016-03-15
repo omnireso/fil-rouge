@@ -81,3 +81,28 @@ fos_comment:
             thread: SerieBundle\Entity\Thread
 assetic:
     bundles: [ "FOSCommentBundle" ]
+
+# ENABLING TRANSLATION
+
+framework:
+
+    # On définit la langue par défaut pour le service de traduction
+
+    # Décommenter la ligne, et vérifier qu'elle est bien ainsi
+
+    translator:  { fallback: fr }
+
+
+# …
+
+
+    # Vérifier cette ligne aussi, pour la langue par défaut de l'utilisateur
+
+    # C'est celle qui sera utilisée si l'internaute ne demande rien
+
+    default_locale: fr
+
+
+
+framework:
+    translator: { fallbacks: [fr] }
